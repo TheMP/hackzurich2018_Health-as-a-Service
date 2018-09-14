@@ -14,8 +14,11 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'prescription.html',
 })
 export class PrescriptionPage {
+  prescriptionId: string
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    //this.prescriptionId = navParams.get('prescriptionId');
+    this.prescriptionId = '1';
   }
 
   ionViewDidLoad() {

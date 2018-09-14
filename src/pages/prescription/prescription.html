@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Prescription</ion-title>
+    <ion-title>Prescription #{{prescriptionId}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -16,30 +16,44 @@
 <ion-content>
   <ion-card>
 
-    <ion-fab right top>
-      <button ion-fab>
-        <ion-icon name="pin"></ion-icon>
-      </button>
-    </ion-fab>
-  
-    <ion-item>
-      <ion-icon name="football" item-start large></ion-icon>
-      <h2>Museum of Football</h2>
-      <p>11 N. Way St, Madison, WI 53703</p>
+    <ion-item class="qr-code">
+      <img src="assets/imgs/qr-code.png">
+    </ion-item>
+
+    <ion-item class="tboarder">
+      <ion-icon name="md-beaker" item-start></ion-icon>
+      <h4>Paracetamol 10mg</h4>
+      <p>30 Tablets</p>
     </ion-item>
   
     <ion-item>
-      <ion-icon name="wine" item-start large ></ion-icon>
-      <h2>Institute of Fine Cocktails</h2>
-      <p>14 S. Hop Avenue, Madison, WI 53703</p>
+      <ion-icon name="md-beaker" item-start></ion-icon>
+      <h4>Echinacea 3200mg</h4>
+      <p>60 Tablets</p>
     </ion-item>
-  
+
+    <ion-item class="space">
+    </ion-item>
+
+    <ion-row class="tboarder">
+      <ion-col>
+        <h4>Dr Al Franken</h4>
+        <p small>Name</p>
+      </ion-col>
+      <ion-col>
+        <h4>15 September 2018</h4>
+        <p>Date</p>
+      </ion-col>
+    </ion-row>
+
+    <ion-item class="signature">
+      <img src="assets/imgs/signature.png">
+    </ion-item>
+
     <ion-item>
-      <span item-start>18 min</span>
-      <span item-start>(2.6 mi)</span>
       <button ion-button icon-start clear item-end>
-        <ion-icon name="navigate"></ion-icon>
-        Start
+        <ion-icon name="ios-information-circle-outline"></ion-icon>
+        Details
       </button>
     </ion-item>
   
