@@ -13,7 +13,7 @@ import { PrescriptionPage } from '../pages/prescription/prescription';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = PrescriptionPage;
+  rootPage: any = HomePage;
 
   pages: Array<{title: string, component: any}>;
 
