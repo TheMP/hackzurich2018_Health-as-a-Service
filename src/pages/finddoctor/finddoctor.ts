@@ -59,8 +59,10 @@ export class FindDoctorPage {
 
     if(data.value != '') {
       this.careProviders = this.allCareProviders.filter(careProvider => {
-        return careProvider['name'].toLowerCase().indexOf(data.value) >= 0;
+        return careProvider['name'].toLowerCase().indexOf(data.value.toLowerCase()) >= 0;
       });
+    } else {
+      this.careProviders = this.allCareProviders;
     }
   }
 
