@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { RestProvider } from "../../providers/rest/rest-provider";
 
 /**
  * Generated class for the PrescriptionPage page.
@@ -14,15 +15,24 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'prescription.html',
 })
 export class PrescriptionPage {
-  prescriptionId: string
+  prescriptionId: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public restProvider: RestProvider) {
     //this.prescriptionId = navParams.get('prescriptionId');
     this.prescriptionId = '1';
+    this.restProvider = restProvider;
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PrescriptionPage');
+
+    this.restProvider.getDrugById("33124")
+      .then(data => {
+        console.log(data);
+      });
+
   }
 
 }
