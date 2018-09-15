@@ -22,10 +22,17 @@ page-prescription {
 
   .signature {
     img {
-      height: 60%;
       width: 60%;
       margin-left: 0px;
     }
   }
+
+  .desc {
+    p {
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+  }
+
 }
 
