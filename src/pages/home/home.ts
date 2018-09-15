@@ -4,6 +4,7 @@ import {ListPage} from '../list/list';
 import {MymedsPage} from '../mymeds/mymeds';
 import {BillPage} from '../bill/bill';
 import { PrescriptionListPage } from '../prescriptions/prescriptions';
+import {FindDoctorPage} from "../finddoctor/finddoctor";
 
 @Component({
   selector: 'page-home',
@@ -36,4 +37,10 @@ export class HomePage {
   openPres(){
     this.navCtrl.push(PrescriptionListPage);
   }
+
+  findDocs(){
+    this.navCtrl.push(FindDoctorPage);
+  }
+
+
 }
