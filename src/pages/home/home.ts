@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {ListPage} from '../list/list';
+import {MymedsPage} from '../mymeds/mymeds';
+import {BillPage} from '../bill/bill';
+import { PrescriptionListPage } from '../prescriptions/prescriptions';
 
 @Component({
   selector: 'page-home',
@@ -22,4 +25,15 @@ export class HomePage {
     this.navCtrl.push(ListPage);
   }
 
+  openMeds(){
+    this.navCtrl.push(MymedsPage);
+  }
+
+  openBill(){
+    this.navCtrl.push(BillPage);
+  }
+
+  openPres(){
+    this.navCtrl.push(PrescriptionListPage);
+  }
 }

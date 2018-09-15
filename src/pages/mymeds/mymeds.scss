@@ -1,0 +1,34 @@
+page-mymeds {
+    .redicon {
+        padding-top: 0%;
+        font-size: 40px; //Preferred size here
+        color: red;
+    }
+    ion-card{
+        padding-left: 0%;
+        padding-right: 0%;
+        margin-left: 0%;
+        margin-right: 0%;
+
+    }
+    .new{
+        margin-top: 0%;
+        width: 100%;
+        height: 10%;
+        background-color: transparent !important;
+    }
+
+    .con{
+        font-size: 2.5rem;
+        font-weight: 150;
+
+    }
+
+    .griddef{
+        border-top: 1px solid grey !important;
+    }
+
+    ion-item{
+        border-bottom: 1px solid grey !important;
+    }
+}

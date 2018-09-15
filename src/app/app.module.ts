@@ -3,21 +3,25 @@ import {BrowserModule} from '@angular/platform-browser';
 import {ErrorHandler, NgModule} from '@angular/core';
 import {IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular';
 
-import {MyApp} from './app.component';
-import {HomePage} from '../pages/home/home';
-import {ListPage} from '../pages/list/list';
-import {BillPage} from '../pages/bill/bill';
 import {InsurerPage} from "../pages/insurer/insurer";
-import {PrescriptionPage} from '../pages/prescription/prescription';
 import {PharmacyPage} from '../pages/pharmacy/pharmacy';
+import { MyApp } from './app.component';
+import { HomePage } from '../pages/home/home';
+import { ListPage } from '../pages/list/list';
+import { BillPage } from '../pages/bill/bill';
+import { PrescriptionPage } from '../pages/prescription/prescription';
+import { MymedsPage } from '../pages/mymeds/mymeds';
+
 
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 import {PrescriptionListPage} from "../pages/prescriptions/prescriptions";
 import {RestProvider} from '../providers/rest/rest-provider';
 import {BarcodeScanner} from '@ionic-native/barcode-scanner';
+import {Geolocation} from '@ionic-native/geolocation';
 import {DrugInfoPage} from "../pages/prescription/druginfo/druginfo";
 import { GlobalProvider } from '../providers/global/global';
+import {FindDoctorPage} from "../pages/finddoctor/finddoctor";
 
 
 @NgModule({
@@ -31,7 +35,9 @@ import { GlobalProvider } from '../providers/global/global';
     PharmacyPage,
     PrescriptionListPage,
     InsurerPage,
-    DrugInfoPage
+    DrugInfoPage,
+    FindDoctorPage,
+    MymedsPage
   ],
   imports: [
     BrowserModule,
@@ -48,7 +54,9 @@ import { GlobalProvider } from '../providers/global/global';
     InsurerPage,
     PharmacyPage,
     PrescriptionListPage,
-    DrugInfoPage
+    DrugInfoPage,
+    FindDoctorPage,
+    MymedsPage
   ],
   providers: [
     StatusBar,
@@ -56,7 +64,8 @@ import { GlobalProvider } from '../providers/global/global';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     BarcodeScanner,
     RestProvider,
-    GlobalProvider
+    GlobalProvider,
+    Geolocation
   ]
 })
 export class AppModule {

@@ -60,7 +60,7 @@ export class RestProvider {
 
   // Get information about specific drug
   // You can look up drugs using the swissmedic id.
-  getProfessionalDrugInfo(drugId){
+  getProfessionalDrugInfo(drugId) {
     return this.getDrugByIdInternal(drugId, 'professional');
   }
 
@@ -140,7 +140,27 @@ export class RestProvider {
         this.apiUrl + '/care-providers',
         {
           headers: new HttpHeaders().set('Authorization', this.apiToken),
-          params: {key, value}
+          params: {key: value}
+        }
+      ).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
+
+  searchNearestCareProviders(lng, lat, nearLimit) {
+    return new Promise(resolve => {
+      this.http.get(
+        this.apiUrl + '/care-providers',
+        {
+          headers: new HttpHeaders().set('Authorization', this.apiToken),
+          params: {
+            nearLng: lng,
+            nearLat: lat,
+            nearLimit: nearLimit
+          }
         }
       ).subscribe(data => {
         resolve(data);
