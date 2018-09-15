@@ -25,7 +25,7 @@
 
       <ion-list>
         <button ion-item class="prescription-item" *ngFor="let prescription of activePrescriptions; let idx = index"
-                (click)="prescriptionTapped($event, prescription)">
+                (click)="prescriptionTapped($event, prescription, true)">
           <!--<ion-icon [name]="prescription.name" item-start>-->
           <!--</ion-icon>-->
           <h2>{{ prescription.name + " #" + (idx + 1)}}</h2>
@@ -46,7 +46,7 @@
     <ion-card-content>
       <ion-list>
         <button ion-item class="prescription-item" *ngFor="let prescription of pastPrescriptions; let idx = index"
-                (click)="prescriptionTapped($event, prescription)">
+                (click)="prescriptionTapped($event, prescription, false)">
           <!--<ion-icon [name]="prescription.name" item-start>-->
           <!--</ion-icon>-->
           <h2>{{ prescription.name + " #" + (idx + 1)}}</h2>

@@ -7,6 +7,7 @@ export class Prescription {
   grams: Array<number> = [];
   numTablets: Array<number> = [];
   doctor: Doctor;
+  isActive: boolean = true;
 
   constructor(name: String, drugs: Array<object>, doctor: Doctor) {
     this.name = name;
