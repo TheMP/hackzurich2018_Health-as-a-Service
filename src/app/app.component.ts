@@ -11,15 +11,13 @@ import { PrescriptionListPage } from "../pages/prescriptions/prescriptions";
 import {FindDoctorPage} from "../pages/finddoctor/finddoctor";
 import { MymedsPage } from "../pages/mymeds/mymeds";
 
-import { LocalNotifications } from '@ionic-native/local-notifications';
-
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = MymedsPage;
+  rootPage: any = HomePage;
 
   pages: Array<{title: string, component: any}>;
 
