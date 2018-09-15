@@ -67,7 +67,7 @@ export class RestProvider {
   private getDrugByIdInternal(drugId, type) {
     return new Promise(resolve => {
       this.http.get(
-        this.apiUrl + '/drugs/' + drugId + '/' + type,
+        this.apiUrl + '/drugs/' + drugId + '/info/' + type,
         {
           headers: new HttpHeaders().set('Authorization', this.apiToken)
         }
