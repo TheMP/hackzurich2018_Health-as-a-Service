@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { PrescriptionPage } from '../prescription/prescription';
+import { Prescription } from '../../model/Prescription';
+import { RestProvider } from '../../providers/rest/rest-provider';
+import { GlobalProvider } from "../../providers/global/global";
 
 /**
  * Generated class for the PharmacyPage page.
@@ -18,7 +21,11 @@ import { PrescriptionPage } from '../prescription/prescription';
 export class PharmacyPage {
   scannedCode = null;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private barcodeScanner: BarcodeScanner) {
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    private barcodeScanner: BarcodeScanner,
+    public restProvider: RestProvider,
+    public global: GlobalProvider) {
   }
 
   ionViewDidLoad() {
@@ -28,9 +35,24 @@ export class PharmacyPage {
   scanCode() {
     this.barcodeScanner.scan().then(barcodeData => {
       this.scannedCode = barcodeData.text;
-      this.navCtrl.push(PrescriptionPage);
+      this.openPrescription();
     }, (err) => {
-        console.log('Error: ', err);
+      console.log('Error: ', err);
     });
   }
+
+  openPrescription() {
+    var drug_promises = [];
+    const drugIds = ['61248', '51908', '14825'];
+    
+    for (let drugId of drugIds) {
+      drug_promises.push(this.restProvider.getDrugById(drugId));
+    };
+
+    Promise.all(drug_promises).then(drugs => { 
+      var prescription = new Prescription("Prescription", drugs, this.global.getRandomDoctor())
+      this.navCtrl.push(PrescriptionPage, {prescription: prescription})
+    });
+  };
+
 }

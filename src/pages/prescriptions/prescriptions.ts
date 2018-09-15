@@ -21,6 +21,8 @@ export class PrescriptionListPage {
   icons: string[];
   items: Array<{ title: string, note: string, icon: string }>;
   prescriptions: Array<Prescription>;
+  activePrescriptions: Array<Prescription>;
+  pastPrescriptions: Array<Prescription>;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -84,12 +86,16 @@ export class PrescriptionListPage {
     Promise.all(prescriptionPromises).then(ps => {
       console.log("Loaded all prescriptions!")
       this.prescriptions = ps;
+
+      this.activePrescriptions = ps.slice(0, ps.length / 5 * 2)
+      this.pastPrescriptions = ps.slice(this.activePrescriptions.length - 1, ps.length);
     });
     console.log('ionViewDidLoad PrescriptionListsPage');
   }
 
-  prescriptionTapped(event, prescription) {
+  prescriptionTapped(event, prescription, is_active) {
     console.log("Prescription clicked!");
+    prescription.isActive = is_active;
     // That's right, we're pushing to ourselves!
     this.navCtrl.push(PrescriptionPage, {
       prescription: prescription
