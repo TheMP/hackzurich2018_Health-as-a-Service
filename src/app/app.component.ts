@@ -8,6 +8,7 @@ import { ListPage } from '../pages/list/list';
 import { BillPage } from '../pages/bill/bill';
 import { PrescriptionPage } from '../pages/prescription/prescription';
 import { InsurerPage } from "../pages/insurer/insurer";
+import { PrescriptionListPage } from "../pages/prescriptions/prescriptions";
 
 
 @Component({
@@ -16,7 +17,7 @@ import { InsurerPage } from "../pages/insurer/insurer";
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = PrescriptionListPage;
 
   pages: Array<{title: string, component: any}>;
 
@@ -29,6 +30,7 @@ export class MyApp {
       { title: 'List', component: ListPage },
       { title: 'Bill', component: BillPage },
       { title: 'Prescription', component: PrescriptionPage },
+      { title: 'Prescription', component: PrescriptionListPage },
       { title: 'Insurer', component: InsurerPage }
     ];
 

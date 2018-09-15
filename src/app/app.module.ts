@@ -12,6 +12,7 @@ import { PrescriptionPage } from '../pages/prescription/prescription';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {InsurerPage} from "../pages/insurer/insurer";
+import {PrescriptionListPage} from "../pages/prescriptions/prescriptions";
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import {InsurerPage} from "../pages/insurer/insurer";
     ListPage,
     BillPage,
     PrescriptionPage,
+    PrescriptionListPage,
     InsurerPage
   ],
   imports: [
@@ -33,6 +35,7 @@ import {InsurerPage} from "../pages/insurer/insurer";
     ListPage,
     BillPage,
     PrescriptionPage,
+    PrescriptionListPage,
     InsurerPage
   ],
   providers: [
