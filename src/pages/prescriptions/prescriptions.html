@@ -15,20 +15,62 @@
 
 
 <ion-content>
-  <ion-list>
-    <button ion-item class="prescription-item" *ngFor="let prescription of prescriptions; let idx = index" (click)="prescriptionTapped($event, prescription)">
-      <!--<ion-icon [name]="prescription.name" item-start>-->
-      <!--</ion-icon>-->
-      <h2>{{ prescription.name + " #" + (idx + 1)}}</h2>
-      <p> {{ prescription.doctor.name }} • </p>
-      <div class="item-note" item-end>
-        {{ prescription.getTotalNumTablets() }} tablets
-      </div>
-    </button>
-  </ion-list>
+  <ion-card>
+    <ion-card-header>
+        <h1 ion-text color="primary">
+          Active
+        </h1>
+    </ion-card-header>
+    <ion-card-content>
+
+      <ion-list>
+        <button ion-item class="prescription-item" *ngFor="let prescription of activePrescriptions; let idx = index"
+                (click)="prescriptionTapped($event, prescription)">
+          <!--<ion-icon [name]="prescription.name" item-start>-->
+          <!--</ion-icon>-->
+          <h2>{{ prescription.name + " #" + (idx + 1)}}</h2>
+          <p> {{ prescription.doctor.name }} • </p>
+          <div class="item-note" item-end>
+            {{ prescription.getTotalNumTablets() }} tablets
+            <ion-icon name="ios-arrow-forward"></ion-icon>
+          </div>
+        </button>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      History
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <button ion-item class="prescription-item" *ngFor="let prescription of pastPrescriptions; let idx = index"
+                (click)="prescriptionTapped($event, prescription)">
+          <!--<ion-icon [name]="prescription.name" item-start>-->
+          <!--</ion-icon>-->
+          <h2>{{ prescription.name + " #" + (idx + 1)}}</h2>
+          <p> {{ prescription.doctor.name }} • </p>
+          <div class="item-note" item-end>
+            <p>{{ prescription.getTotalNumTablets() }} tablets
+            <ion-icon name="done-all"></ion-icon>
+            </p>
+          </div>
+
+        </button>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
 
   <div *ngIf="selectedItem" padding>
     You navigated here from <b>{{selectedItem.title}}</b>
   </div>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title item-end="">
+    </ion-title>
+  </ion-toolbar>
+</ion-footer>
 
