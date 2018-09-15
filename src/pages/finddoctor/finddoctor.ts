@@ -30,7 +30,7 @@ export class FindDoctorPage {
         this.restProvider.searchNearestCareProviders(
           value.longitude,
           value.latitude,
-          20).then(response => {
+          20).then((response: Object) => {
             this.careProviders = response.result;
             console.log(this.careProviders);
       });
