@@ -14,7 +14,7 @@ import {GlobalProvider} from "../../providers/global/global";
 
 @IonicPage()
 @Component({
-  selector: 'page-prescriptionlist',
+  selector: 'page-prescriptions',
   templateUrl: 'prescriptions.html',
 })
 export class PrescriptionListPage {
