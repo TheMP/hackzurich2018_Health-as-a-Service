@@ -131,4 +131,56 @@ export class RestProvider {
       });
     });
   }
+
+  // Search for care providers
+  searchCareProviders(key, value) {
+    return new Promise(resolve => {
+      this.http.get(
+        this.apiUrl + '/care-providers',
+        {
+          headers: new HttpHeaders().set('Authorization', this.apiToken),
+          params: {key, value}
+        }
+      ).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
+
+  // List available types of care providers
+  // This endpoint retrieves all available types of care providers.
+  getCareProviderTypes() {
+    return new Promise(resolve => {
+      this.http.get(
+        this.apiUrl + '/care-providers/types',
+        {
+          headers: new HttpHeaders().set('Authorization', this.apiToken)
+        }
+      ).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
+
+  // List available categories of care providers
+  // This endpoint retrieves all available categories of care providers.
+  // A category bundles a set of types of care providers in a broader
+  getCareProviderCategories() {
+    return new Promise(resolve => {
+      this.http.get(
+        this.apiUrl + '/care-providers/categories',
+        {
+          headers: new HttpHeaders().set('Authorization', this.apiToken)
+        }
+      ).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
 }
