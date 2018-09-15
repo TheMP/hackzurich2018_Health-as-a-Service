@@ -12,6 +12,7 @@ import { PrescriptionListPage } from "../pages/prescriptions/prescriptions";
 import {FindDoctorPage} from "../pages/finddoctor/finddoctor";
 import { MymedsPage } from "../pages/mymeds/mymeds";
 
+import { LocalNotifications } from '@ionic-native/local-notifications';
 
 @Component({
   templateUrl: 'app.html'
@@ -37,7 +38,6 @@ export class MyApp {
       { title: 'Find doctor', component: FindDoctorPage },
       { title: 'Mymeds', component: MymedsPage }
     ];
-
   }
 
   initializeApp() {

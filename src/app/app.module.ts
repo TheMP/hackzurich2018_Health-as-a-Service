@@ -1,10 +1,10 @@
-import {HttpClientModule} from '@angular/common/http';
-import {BrowserModule} from '@angular/platform-browser';
-import {ErrorHandler, NgModule} from '@angular/core';
-import {IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserModule } from '@angular/platform-browser';
+import { ErrorHandler, NgModule } from '@angular/core';
+import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
-import {InsurerPage} from "../pages/insurer/insurer";
-import {PharmacyPage} from '../pages/pharmacy/pharmacy';
+import { InsurerPage } from "../pages/insurer/insurer";
+import { PharmacyPage } from '../pages/pharmacy/pharmacy';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
@@ -13,15 +13,16 @@ import { PrescriptionPage } from '../pages/prescription/prescription';
 import { MymedsPage } from '../pages/mymeds/mymeds';
 
 
-import {StatusBar} from '@ionic-native/status-bar';
-import {SplashScreen} from '@ionic-native/splash-screen';
-import {PrescriptionListPage} from "../pages/prescriptions/prescriptions";
-import {RestProvider} from '../providers/rest/rest-provider';
-import {BarcodeScanner} from '@ionic-native/barcode-scanner';
-import {Geolocation} from '@ionic-native/geolocation';
-import {DrugInfoPage} from "../pages/prescription/druginfo/druginfo";
+import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { PrescriptionListPage } from "../pages/prescriptions/prescriptions";
+import { RestProvider } from '../providers/rest/rest-provider';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { Geolocation } from '@ionic-native/geolocation';
+import { DrugInfoPage } from "../pages/prescription/druginfo/druginfo";
 import { GlobalProvider } from '../providers/global/global';
-import {FindDoctorPage} from "../pages/finddoctor/finddoctor";
+import { FindDoctorPage } from "../pages/finddoctor/finddoctor";
+import { LocalNotifications } from '@ionic-native/local-notifications';
 
 
 @NgModule({
@@ -61,10 +62,11 @@ import {FindDoctorPage} from "../pages/finddoctor/finddoctor";
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
     BarcodeScanner,
     RestProvider,
     GlobalProvider,
+    LocalNotifications,
     Geolocation
   ]
 })
