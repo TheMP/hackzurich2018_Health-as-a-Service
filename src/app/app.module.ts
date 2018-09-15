@@ -11,6 +11,7 @@ import { PrescriptionPage } from '../pages/prescription/prescription';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import {InsurerPage} from "../pages/insurer/insurer";
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     ListPage,
     BillPage,
-    PrescriptionPage
+    PrescriptionPage,
+    InsurerPage
   ],
   imports: [
     BrowserModule,
@@ -30,7 +32,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     ListPage,
     BillPage,
-    PrescriptionPage
+    PrescriptionPage,
+    InsurerPage
   ],
   providers: [
     StatusBar,
