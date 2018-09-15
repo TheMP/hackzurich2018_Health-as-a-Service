@@ -9,10 +9,12 @@ export class BillPage {
   selectedItem: any;
   icons: string[];
   items: Array<{title: string, note: string, icon: string}>;
+  newBill: {state: string};
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     // If we navigated to this page, we will have an item available as a nav param
     this.selectedItem = navParams.get('item');
+    this.newBill = {state: "primary"};
 
     // Let's populate this page with some filler content for funzies
     this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
@@ -26,6 +28,7 @@ export class BillPage {
         icon: this.icons[Math.floor(Math.random() * this.icons.length)]
       });
     }
+
   }
 
   itemTapped(event, item) {
@@ -33,5 +36,9 @@ export class BillPage {
     this.navCtrl.push(BillPage, {
       item: item
     });
+  }
+
+  sendToInsurance(event, item) {
+    this.newBill.state = "secondary";
   }
 }
