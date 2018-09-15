@@ -1,10 +1,9 @@
 import {Component} from '@angular/core';
-import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {IonicPage, LoadingController, NavController, NavParams} from 'ionic-angular';
 import {PrescriptionPage} from "../prescription/prescription";
 import {Prescription} from "../../model/Prescription";
 import {RestProvider} from "../../providers/rest/rest-provider";
 import {GlobalProvider} from "../../providers/global/global";
-
 
 /**
  * Generated class for the PrescriptionListPage page.
@@ -26,20 +25,32 @@ export class PrescriptionListPage {
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public restProvider: RestProvider,
+              public loadingController: LoadingController,
               public global: GlobalProvider) {
-    // Let's populate this page with some filler content for funzies
-    this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
-      'american-football', 'boat', 'bluetooth', 'build'];
 
-    this.items = [];
-    for (let i = 1; i < 11; i++) {
-      this.items.push({
-        title: 'Prescription ',
-        note: '#' + i,
-        icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-      });
-    }
+    // Let's populate this page with some filler content for funzies
+    // this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
+    //   'american-football', 'boat', 'bluetooth', 'build'];
+    //
+    // this.items = [];
+    // for (let i = 1; i < 11; i++) {
+    //   this.items.push({
+    //     title: 'Prescription ',
+    //     note: '#' + i,
+    //     icon: this.icons[Math.floor(Math.random() * this.icons.length)]
+    //   });
+    // }
+    this.showLoader();
   }
+
+  showLoader() {
+    const loader = this.loadingController.create({
+      content: "Please wait...",
+      duration: 300
+    });
+    loader.present();
+  }
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PrescriptionListsPage');
