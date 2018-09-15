@@ -21,17 +21,23 @@
       <img src="assets/imgs/qr-code.png">
     </ion-item>
 
-    <ion-item class="tboarder">
+    <ion-item class="tboarder" *ngFor="let drug of prescription.drugs; let i = index">
       <ion-icon name="md-beaker" item-start></ion-icon>
-      <h4>Paracetamol 10mg</h4>
-      <p>30 Tablets</p>
+      <h4>{{ drug.title }} {{ prescription.grams[i] }} mg</h4>
+      <p>{{ prescription.numTablets[i] }} Tablets</p>
     </ion-item>
-  
-    <ion-item>
-      <ion-icon name="md-beaker" item-start></ion-icon>
-      <h4>Echinacea 3200mg</h4>
-      <p>60 Tablets</p>
-    </ion-item>
+
+    <!--<ion-item class="tboarder">-->
+      <!--<ion-icon name="md-beaker" item-start></ion-icon>-->
+      <!--<h4>Paracetamol 10mg</h4>-->
+      <!--<p>30 Tablets</p>-->
+    <!--</ion-item>-->
+  <!---->
+    <!--<ion-item>-->
+      <!--<ion-icon name="md-beaker" item-start></ion-icon>-->
+      <!--<h4>Echinacea 3200mg</h4>-->
+      <!--<p>60 Tablets</p>-->
+    <!--</ion-item>-->
 
     <ion-item class="space">
     </ion-item>
