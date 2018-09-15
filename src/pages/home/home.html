@@ -7,12 +7,38 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+<ion-content no-padding class="viewpost">
+    <div class="main-content" >
+  <ion-grid>
+    <ion-row>
+      <ion-col text-center class="centerx">
+          <ion-img [src]="gauge"></ion-img>
+          <p class="fontsizex">1250</p>
+      </ion-col>
+    </ion-row>
+    <ion-row> 
+      <ion-col text-center class="center">
+          <ion-img  class="paddingx" [src]="p1" ></ion-img>
+          <p class="fontsize">Bills</p>
+      </ion-col>
+      <ion-col text-center class="center" (click)="openPrescriptions()">
+          <ion-img  class="paddingx" [src]="p2" ></ion-img>
+          <p class="fontsize">My Meds</p>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col text-center class="center">
+          <ion-img  class="paddingx" [src]="p3" ></ion-img>
+          <p class="fontsize">Prescriptions</p>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+        </ion-col>
+      <ion-col text-center class="center">
+          <ion-img  class="paddingx" [src]="p4" ></ion-img>
+          <p class="fontsize" >Find doctor</p>
+
+        </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>
 </ion-content>
