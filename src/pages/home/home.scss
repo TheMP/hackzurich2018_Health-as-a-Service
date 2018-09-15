@@ -72,10 +72,20 @@ page-home {
     }
     .fontsizex{
         font-size: 3rem;
-        padding-top: -20%;
+        padding-top: -10%;
+    }
+
+    .fontsizez{
+        color: grey;
+        font-size: 2rem;
     }
 
     .paddingx{
         padding-top: 10% !important;
+    }
+    
+    p{
+        -webkit-margin-before: 0em;
+        -webkit-margin-after: 0em;
     }
 }

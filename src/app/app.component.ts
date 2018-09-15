@@ -10,7 +10,7 @@ import { InsurerPage } from "../pages/insurer/insurer";
 import { PharmacyPage } from "../pages/pharmacy/pharmacy";
 import { PrescriptionListPage } from "../pages/prescriptions/prescriptions";
 import {FindDoctorPage} from "../pages/finddoctor/finddoctor";
-
+import { MymedsPage } from "../pages/mymeds/mymeds";
 
 
 @Component({
@@ -19,7 +19,7 @@ import {FindDoctorPage} from "../pages/finddoctor/finddoctor";
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = PrescriptionListPage;
+  rootPage: any = HomePage;
 
   pages: Array<{title: string, component: any}>;
 
@@ -35,6 +35,7 @@ export class MyApp {
       { title: 'Pharmacy', component: PharmacyPage },
       { title: 'Insurer', component: InsurerPage },
       { title: 'Find doctor', component: FindDoctorPage },
+      { title: 'Mymeds', component: MymedsPage }
     ];
 
   }
