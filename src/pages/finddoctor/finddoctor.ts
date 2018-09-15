@@ -20,6 +20,14 @@ export class FindDoctorPage {
     // If we navigated to this page, we will have an item available as a nav param
   }
 
+  reformatDist(dist:number) {
+    if (dist < 1000) {
+      return Math.round(dist) + " m";
+    } else {
+      return (Math.round(dist / 100) / 10) + " km";
+    }
+  }
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad  FindDoctorPage');
 
@@ -30,9 +38,12 @@ export class FindDoctorPage {
         this.restProvider.searchNearestCareProviders(
           value.longitude,
           value.latitude,
-          20).then((response: Object) => {
-            this.careProviders = response['result'];
-            console.log(this.careProviders);
+          500).then((response: Object) => {
+            this.careProviders = response['result'].filter( careProvider => {
+              careProvider['distStr'] = this.reformatDist(careProvider['distance']);
+              return 'title' in careProvider && 'phone' in careProvider ;
+            });
+            // console.log(this.careProviders);
       });
     }).catch((err) => {
       console.log(err.message)
@@ -41,5 +52,7 @@ export class FindDoctorPage {
 
   }
 
+  careProviderClicked(cardProvider: any) {
 
+  }
 }
