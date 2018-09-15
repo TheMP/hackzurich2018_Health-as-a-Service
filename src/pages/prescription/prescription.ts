@@ -39,5 +39,9 @@ export class PrescriptionPage {
       console.log(drugHtml);
       drug.html = drugHtml;
     });
+
+    this.restProvider.getTariff("00.0026").then(tariff => {
+      drug.tariff = tariff;
+    });
   }
 }
