@@ -1,38 +1,15 @@
-page-prescription {
-  
-  ion-row {
-    padding: 10px
-  }
-
-  .tboarder {
-    border-top: 1px solid #cccccc
-  }
-
-  .space {
-    height: 20px;
-  }
-
-  .qr-code {
-    img {
-      height: 180px;
-      width: 180px;
-      margin: auto;
+page-druginfo {
+  span
+    .s4, .s5 {
+      font-size: 20px;
+      font-weight: 600;
+      color: #000;
     }
-  }
 
-  .signature {
-    img {
-      width: 60%;
-      margin-left: 0px;
+    .s6 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #000;
     }
-  }
-
-  .desc {
-    p {
-      font-size: 12px;
-      text-transform: uppercase;
-    }
-  }
-
 }
 

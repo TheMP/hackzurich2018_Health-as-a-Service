@@ -21,12 +21,11 @@
       <img src="assets/imgs/qr-code.png">
     </ion-item>
 
-    <ion-item class="tboarder" *ngFor="let drug of prescription.drugs; let i = index">
-      <ion-icon name="md-beaker" item-start (click)="drugClicked(drug)"></ion-icon>
+    <ion-item class="tboarder" *ngFor="let drug of prescription.drugs; let i = index" (click)="drugClicked(drug)">
+      <ion-icon name="md-beaker" item-start></ion-icon>
       <h4>{{ drug.title }} {{ prescription.grams[i] }} mg</h4>
       <p>from {{ drug.authHolder }}</p>
       <p>{{ prescription.numTablets[i] }} Tablets</p>
-
     </ion-item>
 
     <!--<ion-item class="tboarder">-->
@@ -41,13 +40,12 @@
       <!--<p>60 Tablets</p>-->
     <!--</ion-item>-->
 
-    <ion-item class="space">
-    </ion-item>
+    <!-- <ion-item class="space"></ion-item> -->
 
     <ion-row class="tboarder">
       <ion-col class="desc">
         <p>Name</p>
-        <h4>Dr Al Franken</h4>
+        <h4>{{ prescription.doctor.name }}</h4>
       </ion-col>
       <ion-col class="desc">
         <p>Date</p>
@@ -58,7 +56,7 @@
     <ion-row>
         <ion-col class="signature desc">
           <p>Signature</p>
-          <img src="assets/imgs/signature.png">
+          <img [src]="prescription.doctor.signaturePath">
         </ion-col>
     </ion-row>
 

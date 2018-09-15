@@ -9,17 +9,18 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Prescription list</ion-title>
+    <ion-title>Prescriptions</ion-title>
   </ion-navbar>
 </ion-header>
 
 
 <ion-content>
   <ion-list>
-    <button ion-item *ngFor="let prescription of prescriptions" (click)="prescriptionTapped($event, prescription)">
+    <button ion-item class="prescription-item" *ngFor="let prescription of prescriptions; let idx = index" (click)="prescriptionTapped($event, prescription)">
       <!--<ion-icon [name]="prescription.name" item-start>-->
       <!--</ion-icon>-->
-      {{ prescription.name }}
+      <h2>{{ prescription.name + " #" + (idx + 1)}}</h2>
+      <p> {{ prescription.doctor.name }} • </p>
       <div class="item-note" item-end>
         {{ prescription.getTotalNumTablets() }} tablets
       </div>
