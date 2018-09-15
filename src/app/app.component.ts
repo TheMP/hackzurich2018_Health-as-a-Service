@@ -18,7 +18,7 @@ import { MymedsPage } from "../pages/mymeds/mymeds";
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = PrescriptionListPage;
+  rootPage: any = HomePage;
 
   pages: Array<{title: string, component: any}>;
 
