@@ -16,8 +16,7 @@ import { InsurerPage } from "../pages/insurer/insurer";
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  // TODO: change back to home
-  rootPage: any = InsurerPage;
+  rootPage: any = HomePage;
 
   pages: Array<{title: string, component: any}>;
 
