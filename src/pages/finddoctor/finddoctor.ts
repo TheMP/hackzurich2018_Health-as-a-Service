@@ -12,6 +12,7 @@ export class FindDoctorPage {
   icons: string[];
   items: Array<{ title: string, note: string, icon: string }>;
   careProviders: Array<Object>;
+  allCareProviders: Array<Object>;
   careProvidersLoaded: boolean = false;
 
   constructor(public navCtrl: NavController,
@@ -46,13 +47,21 @@ export class FindDoctorPage {
               return 'title' in careProvider && 'phone' in careProvider ;
             }
             );
+            this.allCareProviders = this.careProviders;
             // console.log(this.careProviders);
       });
     }).catch((err) => {
       console.log(err.message)
     });
+  }
 
+  onChangeTime(data) : void {
 
+    if(data.value != '') {
+      this.careProviders = this.allCareProviders.filter(careProvider => {
+        return careProvider['name'].toLowerCase().indexOf(data.value) >= 0;
+      });
+    }
   }
 
   careProviderClicked(cardProvider: any) {
