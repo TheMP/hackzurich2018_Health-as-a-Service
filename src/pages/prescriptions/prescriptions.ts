@@ -47,7 +47,7 @@ export class PrescriptionListPage {
       '48313', '58665', '57002', '54708', '55214', '55378', '53181', '55691', '53668', '52524', '51065', '47528',
       '44780', '56907', '62132', '62169'];
 
-    const NumDrugsPerPrescription = 10;
+    const NumDrugsPerPrescription = 5;
     let prescriptionPromises = [];
 
     while (drugSwissIDs.length > 0) {
@@ -59,7 +59,8 @@ export class PrescriptionListPage {
       }
 
       prescriptionPromises.push(Promise.all(drug_promises).then(drugs => {
-        var prescription = new Prescription("Prescription Name", drugs);
+        // TODO: we need to find a better prescription name
+        var prescription = new Prescription("Disease #x - stage #x", drugs);
         // console.log(prescription);
         return prescription;
       }));
@@ -72,8 +73,11 @@ export class PrescriptionListPage {
     console.log('ionViewDidLoad PrescriptionListsPage');
   }
 
-  prescriptionTapped(event, item) {
+  prescriptionTapped(event, prescription) {
+    console.log("Prescription clicked!");
     // That's right, we're pushing to ourselves!
-    this.navCtrl.push(PrescriptionPage);
+    this.navCtrl.push(PrescriptionPage, {
+      prescription: prescription
+    });
   }
 }

@@ -21,10 +21,11 @@
       <!--</ion-icon>-->
       {{ prescription.name }}
       <div class="item-note" item-end>
-        {{ prescription.name }} (If we need to add something)
+        <!--{{ prescription.name }}-->
       </div>
     </button>
   </ion-list>
+
   <div *ngIf="selectedItem" padding>
     You navigated here from <b>{{selectedItem.title}}</b>
   </div>
