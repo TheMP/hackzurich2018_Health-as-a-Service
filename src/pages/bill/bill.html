@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Bill</ion-title>
+    <ion-title>My Bills</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -13,85 +13,67 @@
     <!--Bills to reimburse vs. Bills already reimbursed-->
     <ion-card-header>
       <h1 ion-text color="primary" style="text-align:center;">
-        1500.0 CHF
+        {{ calculateSum() - calculateRefunded() }}.0 CHF
       </h1>
       <br>
       <h2 ion-text color="dark" style="text-align:right;">
-        100.0 / 1600.0 CHF
+        {{ calculateRefunded() }}.0 / {{ calculateSum() }}.0 CHF
       </h2>
     </ion-card-header>
 
     <ion-card-content>
       <h3 ion-text>
         <em>
-          You have 1600.0 CHF medical bills this month, 100.0 CHF is already refunded.
+          You have {{ calculateSum() }}.0 CHF medical bills this month, {{ calculateRefunded() }}.0 CHF is already refunded.
         </em>
       </h3>
     </ion-card-content>
   </ion-card>
 
   <ion-list>
-    <ion-item-sliding>
+    <ion-item-sliding *ngFor="let bill of activeBills">
       <ion-item id="new-bill">
-        <h2> Bill Example1 </h2>
-        <p> 15.09.2018 </p>
-        <span item-right>1500.0 CHF</span>
+        <h2> {{bill.prescription.name}}</h2>
+        <p> {{bill.date}} </p>
+        <span item-right>{{bill.amount}}.0 CHF</span>
         <div item-right>
-          <button ion-button color="{{ newBill.statusColor }}">
-            {{newBill.statusText}}&nbsp;
+          <button ion-button color="{{ bill.statusColor }}">
+            {{ bill.statusText }}&nbsp;
           </button>
         </div>
       </ion-item>
 
       <ion-item-options side="right">
-        <button ion-button color="{{ newBill.buttonColor }}" (click) ="sendToInsurance($event, item)">
+        <button ion-button color="{{ bill.buttonColor }}" (click) ="sendToInsurance($event, bill)">
           <ion-icon>
             <img class="avatarImg" src="assets/imgs/axa_logo.png">
           </ion-icon>
-          {{ newBill.buttonText }}
+          {{ bill.buttonText }}
         </button>
       </ion-item-options>
     </ion-item-sliding>
 
-    <ion-item-sliding>
-      <ion-item>
-        <h2> Bill Example1 </h2>
-        <p> 03.09.2018 </p>
-        <span item-right>100.0 CHF</span>
+    <ion-item-sliding *ngFor="let bill of pastBills">
+      <ion-item id="past-bill">
+        <h2> {{bill.prescription.name}}</h2>
+        <p> {{bill.date}} </p>
+        <span item-right>{{bill.amount}}.0 CHF</span>
         <div item-right>
-          <button ion-button color="light">
-            Refunded
+          <button ion-button color="{{ bill.statusColor }}">
+            {{ bill.statusText }}&nbsp;
           </button>
         </div>
       </ion-item>
 
       <ion-item-options side="right">
-        <button ion-button color="primary">
-          <ion-icon name="ios-document"></ion-icon>
+        <button ion-button color="{{ bill.buttonColor }}" (click) ="detailsClick($event, bill)">
+            <ion-icon name="ios-document"></ion-icon>
           Details
         </button>
       </ion-item-options>
     </ion-item-sliding>
 
-    <ion-item-sliding>
-      <ion-item>
-        <h2> Bill Example1 </h2>
-        <p> 01.09.2018 </p>
-        <span item-right>0.0 CHF</span>
-        <div item-right>
-          <button ion-button color="danger">
-            Rejected
-          </button>
-        </div>
-      </ion-item>
 
-      <ion-item-options side="right">
-        <button ion-button color="primary">
-          <ion-icon name="ios-document"></ion-icon>
-          Details
-        </button>
-      </ion-item-options>
-    </ion-item-sliding>
   </ion-list>
 
   <!--<ion-list>-->
