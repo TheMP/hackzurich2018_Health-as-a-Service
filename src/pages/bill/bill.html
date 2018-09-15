@@ -37,18 +37,18 @@
         <p> 15.09.2018 </p>
         <span item-right>1500.0 CHF</span>
         <div item-right>
-          <button ion-button color="secondary">
-            New Bill&nbsp;
+          <button ion-button color="{{ newBill.statusColor }}">
+            {{newBill.statusText}}&nbsp;
           </button>
         </div>
       </ion-item>
 
       <ion-item-options side="right">
-        <button ion-button color="{{ newBill.state }}" (click) ="acceptInsurance($event, item)">
+        <button ion-button color="{{ newBill.buttonColor }}" (click) ="sendToInsurance($event, item)">
           <ion-icon>
             <img class="avatarImg" src="assets/imgs/axa_logo.png">
           </ion-icon>
-          Send to AXA
+          {{ newBill.buttonText }}
         </button>
       </ion-item-options>
     </ion-item-sliding>
