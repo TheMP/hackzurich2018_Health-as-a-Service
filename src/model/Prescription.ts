@@ -2,7 +2,7 @@ export class Prescription {
 
   name: String;
   drugs: Array<object>;
-  grams: Array<number>;
+  grams: Array<number> = [];
 
   constructor(name: String, drugs: Array<object>) {
     this.name = name;
