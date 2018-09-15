@@ -16,11 +16,12 @@
 
 <ion-content>
   <ion-list>
-    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-      <ion-icon [name]="item.icon" item-start></ion-icon>
-      {{item.title}}
+    <button ion-item *ngFor="let prescription of prescriptions" (click)="prescriptionTapped($event, prescription)">
+      <!--<ion-icon [name]="prescription.name" item-start>-->
+      <!--</ion-icon>-->
+      {{ prescription.name }}
       <div class="item-note" item-end>
-        {{item.note}}
+        {{ prescription.name }} (If we need to add something)
       </div>
     </button>
   </ion-list>
