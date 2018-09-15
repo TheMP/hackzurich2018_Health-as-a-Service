@@ -31,7 +31,7 @@ export class FindDoctorPage {
           value.longitude,
           value.latitude,
           20).then((response: Object) => {
-            this.careProviders = response.result;
+            this.careProviders = response['result'];
             console.log(this.careProviders);
       });
     }).catch((err) => {
