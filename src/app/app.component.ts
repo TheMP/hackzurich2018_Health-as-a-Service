@@ -9,6 +9,7 @@ import { BillPage } from '../pages/bill/bill';
 import { InsurerPage } from "../pages/insurer/insurer";
 import { PharmacyPage } from "../pages/pharmacy/pharmacy";
 import { PrescriptionListPage } from "../pages/prescriptions/prescriptions";
+import {FindDoctorPage} from "../pages/finddoctor/finddoctor";
 
 
 
@@ -32,7 +33,8 @@ export class MyApp {
       { title: 'Bill', component: BillPage },
       { title: 'Prescription', component: PrescriptionListPage },
       { title: 'Pharmacy', component: PharmacyPage },
-      { title: 'Insurer', component: InsurerPage }
+      { title: 'Insurer', component: InsurerPage },
+      { title: 'Find doctor', component: FindDoctorPage },
     ];
 
   }

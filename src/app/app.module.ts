@@ -16,7 +16,9 @@ import {SplashScreen} from '@ionic-native/splash-screen';
 import {PrescriptionListPage} from "../pages/prescriptions/prescriptions";
 import {RestProvider} from '../providers/rest/rest-provider';
 import {BarcodeScanner} from '@ionic-native/barcode-scanner';
+import {Geolocation} from '@ionic-native/geolocation';
 import {DrugInfoPage} from "../pages/prescription/druginfo/druginfo";
+import {FindDoctorPage} from "../pages/finddoctor/finddoctor";
 
 
 @NgModule({
@@ -30,7 +32,8 @@ import {DrugInfoPage} from "../pages/prescription/druginfo/druginfo";
     PharmacyPage,
     PrescriptionListPage,
     InsurerPage,
-    DrugInfoPage
+    DrugInfoPage,
+    FindDoctorPage
   ],
   imports: [
     BrowserModule,
@@ -47,14 +50,16 @@ import {DrugInfoPage} from "../pages/prescription/druginfo/druginfo";
     InsurerPage,
     PharmacyPage,
     PrescriptionListPage,
-    DrugInfoPage
+    DrugInfoPage,
+    FindDoctorPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     BarcodeScanner,
-    RestProvider
+    RestProvider,
+    Geolocation
   ]
 })
 export class AppModule {
