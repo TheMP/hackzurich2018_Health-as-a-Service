@@ -11,13 +11,14 @@
 
   <ion-card>
     <ion-list>
-
       <ion-item >
         <ion-label ><ion-icon name="locate" item-start></ion-icon></ion-label>
         <ion-input type="text" placeholder="Find nearby..."></ion-input>
+        <ion-spinner item-end *ngIf="!careProvidersLoaded"></ion-spinner>
       </ion-item>
-
     </ion-list>
+
+
 
     <ion-item class="tboarder" *ngFor="let careProvider of careProviders; let i = index" (click)="careProviderClicked(cardProvider)">
       <ion-icon name="call" item-start></ion-icon>

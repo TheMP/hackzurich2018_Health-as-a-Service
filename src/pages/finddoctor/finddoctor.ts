@@ -12,6 +12,7 @@ export class FindDoctorPage {
   icons: string[];
   items: Array<{ title: string, note: string, icon: string }>;
   careProviders: Array<Object>;
+  careProvidersLoaded: boolean = false;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -39,10 +40,12 @@ export class FindDoctorPage {
           value.longitude,
           value.latitude,
           500).then((response: Object) => {
+            this.careProvidersLoaded = true;
             this.careProviders = response['result'].filter( careProvider => {
               careProvider['distStr'] = this.reformatDist(careProvider['distance']);
               return 'title' in careProvider && 'phone' in careProvider ;
-            });
+            }
+            );
             // console.log(this.careProviders);
       });
     }).catch((err) => {
