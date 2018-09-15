@@ -2,7 +2,8 @@ import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {RestProvider} from "../../providers/rest/rest-provider";
 import {Prescription} from "../../model/Prescription";
-
+import { ModalController } from 'ionic-angular';
+import {DrugInfoPage} from "./druginfo/druginfo";
 /**
  * Generated class for the PrescriptionPage page.
  *
@@ -17,10 +18,11 @@ import {Prescription} from "../../model/Prescription";
 })
 export class PrescriptionPage {
   prescription: Prescription;
-
+  drugHtml: Object;
   constructor(public navCtrl: NavController,
               public restProvider: RestProvider,
-              public navParams: NavParams) {
+              public navParams: NavParams,
+              public modalCtrl: ModalController) {
 
     this.prescription = navParams.get('prescription');
     console.log(this.prescription);
@@ -35,13 +37,16 @@ export class PrescriptionPage {
   // TODO: Could not make inline HTML display work, please have a look!
   // see drug API at https://health.axa.ch/hack/docs/#drugs
   drugClicked(drug) {
-    this.restProvider.getPatientDrugInfo(drug.swissmedicIds).then(drugHtml => {
-      console.log(drugHtml);
-      drug.html = drugHtml;
-    });
 
-    this.restProvider.getTariff("00.0026").then(tariff => {
-      drug.tariff = tariff;
+    let prescriptionPromises = [];
+    prescriptionPromises.push(this.restProvider.getPatientDrugInfo(drug.swissmedicIds));
+
+    Promise.all(prescriptionPromises).then(drugHtml => {
+        console.log(drugHtml);
+      this.drugHtml = drugHtml[0];
+    });
+    this.navCtrl.push(DrugInfoPage, {
+      swissMedicsIds: drug
     });
   }
 }

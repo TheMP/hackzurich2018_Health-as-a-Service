@@ -1,0 +1,26 @@
+<!--
+  Generated template for the PrescriptionPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!--<iframe>{{ drugHtml }}</iframe>-->
+
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Drug: {{drug.title}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+<ion-card>
+    <div [innerHtml]="drugHtml" *ngIf="drugHtml !== undefined">
+    </div>
+</ion-card>
+
+</ion-content>
+

@@ -26,18 +26,7 @@
       <h4>{{ drug.title }} {{ prescription.grams[i] }} mg</h4>
       <p>from {{ drug.authHolder }}</p>
       <p>{{ prescription.numTablets[i] }} Tablets</p>
-      <div [innerHtml]="html" *ngIf="drug.html !== undefined">
-        {{ drug.html }}
-      </div>
-      <ion-card  *ngIf="drug.tariff !== undefined">
-        <ion-card-header>
-          {{ drug.tariff.titleDe }}
-        </ion-card-header>
-        <ion-card-content>
-          <!-- Add card content here! -->
-          {{ drug.tariff.medicalDetailsDe }}
-        </ion-card-content>
-      </ion-card>
+
     </ion-item>
 
     <!--<ion-item class="tboarder">-->

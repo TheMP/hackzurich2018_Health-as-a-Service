@@ -69,10 +69,11 @@ export class RestProvider {
       this.http.get(
         this.apiUrl + '/drugs/' + drugId + '/info/' + type,
         {
-          headers: new HttpHeaders().set('Authorization', this.apiToken)
+          headers: new HttpHeaders().set('Authorization', this.apiToken),
+          responseType: 'text'
         }
       ).subscribe(data => {
-        resolve(data);
+        resolve(data.trim().slice(45)); // remove <?xml> header that happens to use 45 characters
       }, err => {
         console.log(err);
       });

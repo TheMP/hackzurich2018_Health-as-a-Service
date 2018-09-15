@@ -16,6 +16,7 @@ import {SplashScreen} from '@ionic-native/splash-screen';
 import {PrescriptionListPage} from "../pages/prescriptions/prescriptions";
 import {RestProvider} from '../providers/rest/rest-provider';
 import {BarcodeScanner} from '@ionic-native/barcode-scanner';
+import {DrugInfoPage} from "../pages/prescription/druginfo/druginfo";
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import {BarcodeScanner} from '@ionic-native/barcode-scanner';
     InsurerPage,
     PharmacyPage,
     PrescriptionListPage,
-    InsurerPage
+    InsurerPage,
+    DrugInfoPage
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,8 @@ import {BarcodeScanner} from '@ionic-native/barcode-scanner';
     PrescriptionPage,
     InsurerPage,
     PharmacyPage,
-    PrescriptionListPage
+    PrescriptionListPage,
+    DrugInfoPage
   ],
   providers: [
     StatusBar,
