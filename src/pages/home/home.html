@@ -18,11 +18,11 @@
       </ion-col>
     </ion-row>
     <ion-row> 
-      <ion-col text-center class="center">
+      <ion-col text-center class="center" (click)="openBill()">
           <ion-img  class="paddingx" [src]="p1" ></ion-img>
           <p class="fontsize">Bills</p>
       </ion-col>
-      <ion-col text-center class="center" (click)="openPrescriptions()">
+      <ion-col text-center class="center" (click)="openMeds()">
           <ion-img  class="paddingx" [src]="p2" ></ion-img>
           <p class="fontsize">My Meds</p>
 
