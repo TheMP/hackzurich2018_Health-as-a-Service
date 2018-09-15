@@ -11,14 +11,23 @@
 
   <ion-card>
     <ion-list>
-
       <ion-item >
         <ion-label ><ion-icon name="locate" item-start></ion-icon></ion-label>
         <ion-input type="text" placeholder="Find nearby..."></ion-input>
+        <ion-spinner item-end *ngIf="!careProvidersLoaded"></ion-spinner>
       </ion-item>
-
-
     </ion-list>
+
+
+
+    <ion-item class="tboarder" *ngFor="let careProvider of careProviders; let i = index" (click)="careProviderClicked(cardProvider)">
+      <ion-icon name="call" item-start></ion-icon>
+      <h3>{{ careProvider.title.replace("_", " ") }} <b>{{ careProvider.name }}</b></h3>
+      <a href="tel:{{ careProvider.phone }}">{{ careProvider.phone }}</a>
+      <!--<p>from {{ drug.authHolder }}</p>-->
+      <!--<p>{{ prescription.numTablets[i] }} Tablets</p>-->
+      <span item-end>{{ careProvider.distStr }}</span>
+    </ion-item>
   </ion-card>
 
 </ion-content>

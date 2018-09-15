@@ -1,7 +1,9 @@
 page-mymeds {
     .redicon {
-        padding-top: 0%;
-        font-size: 40px; //Preferred size here
+        padding-top: 10%;
+        width: auto;
+        object-fit: contain;
+        font-size: 30px; //Preferred size here
         color: red;
     }
     ion-card{
@@ -21,7 +23,7 @@ page-mymeds {
     .con{
         font-size: 2.5rem;
         font-weight: 150;
-
+        padding-left: 5%;
     }
 
     .griddef{
@@ -31,4 +33,13 @@ page-mymeds {
     ion-item{
         border-bottom: 1px solid grey !important;
     }
+    ion-card-title{
+        font-size: 1.8rem !important;
+    }
+
+    .card-title-ios{
+        margin: 0%;
+        padding: 0%;
+    }
+
 }
