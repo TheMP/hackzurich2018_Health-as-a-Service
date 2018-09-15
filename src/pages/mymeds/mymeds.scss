@@ -1,10 +1,14 @@
 page-mymeds {
+  .content {
+    background-color: #f7f7f7;
+  }
+
   .redicon {
     padding-top: 10%;
     width: auto;
     object-fit: contain;
     font-size: 30px; //Preferred size here
-    color: red;
+    color: #e74c3c;
   }
   ion-card {
     padding-left: 0%;
@@ -37,12 +41,21 @@ page-mymeds {
     font-size: 1.8rem !important;
   }
 
+  .card-content {
+    padding: 8px 8px 0px 8px;
+  }
+
   .card-title-ios {
     margin: 0%;
     padding: 0%;
   }
+
   .dosage-time {
     padding-top: 7px;
+  }
+
+  .progress-dots {
+      color: #e74c3c;
   }
 
 }
