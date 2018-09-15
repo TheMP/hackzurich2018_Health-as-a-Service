@@ -28,7 +28,7 @@ export class HomePage {
   scheduleNotifications() {
     this.localNotifications.schedule({
       text: 'Remember to take your meds today at 4PM',
-      trigger: { at: new Date(new Date().getTime() + 3600) },
+      trigger: { at: new Date(new Date().getTime() + 900) },
       led: 'FF0000',
       sound: null,
       icon: 'https://www.iconsdb.com/icons/preview/soylent-red/pill-xxl.png'
