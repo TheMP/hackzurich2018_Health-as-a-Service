@@ -4,6 +4,8 @@ import {RestProvider} from "../../providers/rest/rest-provider";
 import {Prescription} from "../../model/Prescription";
 import { ModalController } from 'ionic-angular';
 import {DrugInfoPage} from "./druginfo/druginfo";
+import { LoadingController } from 'ionic-angular';
+
 /**
  * Generated class for the PrescriptionPage page.
  *
@@ -22,11 +24,21 @@ export class PrescriptionPage {
   constructor(public navCtrl: NavController,
               public restProvider: RestProvider,
               public navParams: NavParams,
-              public modalCtrl: ModalController) {
+              public modalCtrl: ModalController,
+              public loadingCtrl: LoadingController) {
 
     this.prescription = navParams.get('prescription');
     console.log(this.prescription);
 
+    this.showLoader();
+  }
+
+  showLoader() {
+    const loader = this.loadingCtrl.create({
+      content: "Please wait...",
+      duration: 300
+    });
+    loader.present();
   }
 
   ionViewDidLoad() {

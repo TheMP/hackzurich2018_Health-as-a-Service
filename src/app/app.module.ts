@@ -17,6 +17,7 @@ import {PrescriptionListPage} from "../pages/prescriptions/prescriptions";
 import {RestProvider} from '../providers/rest/rest-provider';
 import {BarcodeScanner} from '@ionic-native/barcode-scanner';
 import {DrugInfoPage} from "../pages/prescription/druginfo/druginfo";
+import { GlobalProvider } from '../providers/global/global';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import {DrugInfoPage} from "../pages/prescription/druginfo/druginfo";
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     BarcodeScanner,
-    RestProvider
+    RestProvider,
+    GlobalProvider
   ]
 })
 export class AppModule {

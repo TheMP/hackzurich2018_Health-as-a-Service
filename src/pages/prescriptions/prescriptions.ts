@@ -3,6 +3,8 @@ import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {PrescriptionPage} from "../prescription/prescription";
 import {Prescription} from "../../model/Prescription";
 import {RestProvider} from "../../providers/rest/rest-provider";
+import {GlobalProvider} from "../../providers/global/global";
+
 
 /**
  * Generated class for the PrescriptionListPage page.
@@ -23,7 +25,8 @@ export class PrescriptionListPage {
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              public restProvider: RestProvider) {
+              public restProvider: RestProvider,
+              public global: GlobalProvider) {
     // Let's populate this page with some filler content for funzies
     this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
       'american-football', 'boat', 'bluetooth', 'build'];
@@ -41,13 +44,16 @@ export class PrescriptionListPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad PrescriptionListsPage');
 
-    const drugSwissIDs = ['61248', '51908', '14825', '65794', '66687', '65067', '65774', '63177', '56209', '57813', '63182',
-      '65823', '62978', '66465', '53750', '54637', '50141', '51946', '57258', '45209', '52132', '66960', '60325',
-      '61876', '61354', '55746', '36752', '48799', '56224', '57363', '62513', '47033', '30096', '30097', '61467',
-      '48313', '58665', '57002', '54708', '55214', '55378', '53181', '55691', '53668', '52524', '51065', '47528',
-      '44780', '56907', '62132', '62169'];
+    // const drugSwissIDs = ['61248', '51908', '14825', '65794', '66687', '65067', '65774', '63177', '56209', '57813', '63182',
+    //   '65823', '62978', '66465', '53750', '54637', '50141', '51946', '57258', '45209', '52132', '66960', '60325',
+    //   '61876', '61354', '55746', '36752', '48799', '56224', '57363', '62513', '47033', '30096', '30097', '61467',
+    //   '48313', '58665', '57002', '54708', '55214', '55378', '53181', '55691', '53668', '52524', '51065', '47528',
+    //   '44780', '56907', '62132', '62169'];
+    
+    const drugSwissIDs = ['61248', '51908', '14825', '65794', '66687', '65067', '65774', '63177', '56209',
+      '65823', '62978', '66465', '53750', '54637', '50141'];
 
-    const NumDrugsPerPrescription = 5;
+    const NumDrugsPerPrescription = 3;
     let prescriptionPromises = [];
 
     while (drugSwissIDs.length > 0) {
@@ -58,10 +64,8 @@ export class PrescriptionListPage {
         drug_promises.push(this.restProvider.getDrugById(drug_swiss_id));
       }
 
-      prescriptionPromises.push(Promise.all(drug_promises).then(drugs => {
-        // TODO: we need to find a better prescription name
-        var prescription = new Prescription("Disease #x - stage #x", drugs);
-        // console.log(prescription);
+      prescriptionPromises.push(Promise.all(drug_promises).then(drugs => {        
+        var prescription = new Prescription("Prescription", drugs, this.global.getRandomDoctor());
         return prescription;
       }));
     }
