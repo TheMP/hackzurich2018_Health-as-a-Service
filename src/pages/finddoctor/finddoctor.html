@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Find doctor</ion-title>
+    <ion-title>{{ title }}</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -22,11 +22,22 @@
 
     <ion-item class="tboarder" *ngFor="let careProvider of careProviders; let i = index" (click)="careProviderClicked(cardProvider)">
       <ion-icon name="call" item-start></ion-icon>
-      <h3>{{ careProvider.title.replace("_", " ") }} <b>{{ careProvider.name }}</b></h3>
+
+      <h3 *ngIf="prescription === undefined">{{ careProvider.title.replace("_", " ") }} <b>{{ careProvider.name }}</b>
+      </h3>
+      <h3 *ngIf="prescription !== undefined"> <b>{{ careProvider.name }}</b>
+      </h3>
       <a href="tel:{{ careProvider.phone }}">{{ careProvider.phone }}</a>
       <!--<p>from {{ drug.authHolder }}</p>-->
       <!--<p>{{ prescription.numTablets[i] }} Tablets</p>-->
+
+
+
       <span item-end>{{ careProvider.distStr }}</span>
+      <button ion-button item-end
+              *ngIf="prescription !== undefined"
+              [disabled]="careProvider.orderSent"
+              (click)="buyMeds(careProvider)">Order</button>
     </ion-item>
   </ion-card>
 

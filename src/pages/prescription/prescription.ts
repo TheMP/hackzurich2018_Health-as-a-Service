@@ -5,6 +5,7 @@ import {Prescription} from "../../model/Prescription";
 import { ModalController } from 'ionic-angular';
 import {DrugInfoPage} from "./druginfo/druginfo";
 import { LoadingController } from 'ionic-angular';
+import {FindDoctorPage} from "../finddoctor/finddoctor";
 
 /**
  * Generated class for the PrescriptionPage page.
@@ -59,6 +60,12 @@ export class PrescriptionPage {
     });
     this.navCtrl.push(DrugInfoPage, {
       swissMedicsIds: drug
+    });
+  }
+
+  onFindPharmacies() {
+    this.navCtrl.push(FindDoctorPage, {
+      prescription: this.prescription
     });
   }
 }

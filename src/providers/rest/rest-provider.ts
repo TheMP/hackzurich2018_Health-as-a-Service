@@ -11,7 +11,7 @@ import {Injectable} from '@angular/core';
 export class RestProvider {
 
   apiUrl = "https://health.axa.ch/hack/api";
-  apiToken = "straight sister";
+  apiToken = "low land";
 
   constructor(public http: HttpClient) {
     console.log('Hello RestProvider Provider');
@@ -122,11 +122,12 @@ export class RestProvider {
     return new Promise(resolve => {
       this.http.post(
         this.apiUrl + '/pharmacy/buy',
+        undefined,
         {
           headers: new HttpHeaders().set('Authorization', this.apiToken)
         }
       ).subscribe(data => {
-        resolve(data);
+        data;
       }, err => {
         console.log(err);
       });

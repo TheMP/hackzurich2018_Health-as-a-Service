@@ -69,3 +69,11 @@
   
   </ion-card>
 </ion-content>
+
+<ion-footer *ngIf="prescription.isActive">
+  <ion-toolbar>
+    <button ion-button color="primary" item-end (click)="onFindPharmacies()">
+      Order
+    </button>
+  </ion-toolbar>
+</ion-footer>
