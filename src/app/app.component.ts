@@ -12,6 +12,7 @@ import { PrescriptionListPage } from "../pages/prescriptions/prescriptions";
 import {FindDoctorPage} from "../pages/finddoctor/finddoctor";
 import { MymedsPage } from "../pages/mymeds/mymeds";
 
+import { LocalNotifications } from '@ionic-native/local-notifications';
 
 @Component({
   templateUrl: 'app.html'
@@ -29,15 +30,13 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage },
-      { title: 'Bill', component: BillPage },
-      { title: 'Prescription', component: PrescriptionListPage },
+      { title: 'My Bills', component: BillPage },
+      { title: 'My Prescriptions', component: PrescriptionListPage },
       { title: 'Pharmacy', component: PharmacyPage },
       { title: 'Insurer', component: InsurerPage },
       { title: 'Find doctor', component: FindDoctorPage },
       { title: 'Mymeds', component: MymedsPage }
     ];
-
   }
 
   initializeApp() {
