@@ -42,4 +42,10 @@ export class InsurerPage {
     this.newBill.status = "Accepted";
     this.newBill.disabled = true;
   }
+
+  denyInsurance(event, item) {
+    this.newBill.state = "danger";
+    this.newBill.status = "Rejected";
+    this.newBill.disabled = true;
+  }
 }

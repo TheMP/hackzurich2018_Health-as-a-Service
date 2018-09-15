@@ -41,18 +41,18 @@
         <p> 15.09.2018 </p>
         <span item-right>1500.0 CHF</span>
         <div item-right>
-          <button ion-button color="{{ newBill.state }}" disabled="{{newBill.disabled}}">
+          <button ion-button color="{{ newBill.state }}">
             {{ newBill.status }}
           </button>
         </div>
       </ion-item>
 
       <ion-item-options side="right">
-        <button ion-button color="secondary" (click) ="acceptInsurance($event, item)">
+        <button ion-button color="secondary" (click) ="acceptInsurance($event, item)" [disabled]="newBill.disabled">
           <ion-icon name="checkmark-circle"></ion-icon>
           Accept
         </button>
-        <button ion-button color="danger">
+        <button ion-button color="danger" (click) ="denyInsurance($event, item)" [disabled]="newBill.disabled">
           <ion-icon name="close-circle"></ion-icon>
           Reject
         </button>
