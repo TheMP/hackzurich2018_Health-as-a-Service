@@ -1,45 +1,48 @@
 page-mymeds {
-    .redicon {
-        padding-top: 10%;
-        width: auto;
-        object-fit: contain;
-        font-size: 30px; //Preferred size here
-        color: red;
-    }
-    ion-card{
-        padding-left: 0%;
-        padding-right: 0%;
-        margin-left: 0%;
-        margin-right: 0%;
+  .redicon {
+    padding-top: 10%;
+    width: auto;
+    object-fit: contain;
+    font-size: 30px; //Preferred size here
+    color: red;
+  }
+  ion-card {
+    padding-left: 0%;
+    padding-right: 0%;
+    margin-left: 0%;
+    margin-right: 0%;
 
-    }
-    .new{
-        margin-top: 0%;
-        width: 100%;
-        height: 10%;
-        background-color: transparent !important;
-    }
+  }
+  .new {
+    margin-top: 0%;
+    width: 100%;
+    height: 10%;
+    background-color: transparent !important;
+  }
 
-    .con{
-        font-size: 2.5rem;
-        font-weight: 150;
-        padding-left: 5%;
-    }
+  .con {
+    font-size: 2.5rem;
+    font-weight: 150;
+    padding-left: 5%;
+  }
 
-    .griddef{
-        border-top: 1px solid grey !important;
-    }
+  .griddef {
+    border-top: 1px solid grey !important;
+  }
 
-    ion-item{
-        border-bottom: 1px solid grey !important;
-    }
-    ion-card-title{
-        font-size: 1.8rem !important;
-    }
+  ion-item {
+    border-bottom: 1px solid grey !important;
+  }
+  ion-card-title {
+    font-size: 1.8rem !important;
+  }
 
-    .card-title-ios{
-        margin: 0%;
-        padding: 0%;
-    }
+  .card-title-ios {
+    margin: 0%;
+    padding: 0%;
+  }
+  .dosage-time {
+    padding-top: 7px;
+  }
 
 }

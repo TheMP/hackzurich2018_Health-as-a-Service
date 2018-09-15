@@ -14,105 +14,44 @@
 
 
 <ion-content no-padding>
-
+  <h4 ion-item color="primary">Take next med at: <b>4</b> pm</h4>
     <ion-img class="new" [src]="source" ></ion-img>
     <ion-grid>
 
         <ion-row>
           <ion-col class="con" >
-        Next window at 4PM
+
         </ion-col>
         </ion-row>
 
     </ion-grid>
 
-    <ion-list no-padding class="griddef">    
-      <ion-item no-lines>
-          <ion-grid>
+  <ion-card>
+    <ion-card-content>
+      <button ion-item onclick="window.open('https://www.drugs.com/interactions-check.php?drug_list=243-3229,1310-0')">
+        Aspirin 200mg
+        <p class="dosage-time">next dose: 4 pm</p>
+        <ion-icon name='warning'  color="danger" item-end></ion-icon>
+      </button>
+    </ion-card-content>
+  </ion-card>
 
-            <ion-row>
-              <ion-col col-10>
-            <ion-card-title>
-            Aspirin 200mg
-            </ion-card-title>
-            </ion-col>
-            <ion-col col-2>
-              <a href="https://www.drugs.com/interactions-check.php?drug_list=243-3229,1310-0">
-                <ion-icon large name='warning' class="redicon"></ion-icon>
-              </a>
-            </ion-col>
-            </ion-row>
-            <ion-row>
-              <ion-col>
-                3x week
-              </ion-col>
-            </ion-row>
+  <ion-card>
+    <ion-card-content>
+      <button ion-item onclick="">
+        Drug 200mg
+        <p class="dosage-time">next dose: 4 pm</p>
+      </button>
+    </ion-card-content>
+  </ion-card>
 
-        </ion-grid>
-      </ion-item>
-
-      <ion-item  no-lines>
-            <ion-grid>
-  
-              <ion-row>
-                <ion-col col-10>
-              <ion-card-title>
-              Drug 200mg
-              </ion-card-title>
-              </ion-col>
-              <ion-col col-2>
-              </ion-col>
-              </ion-row>
-              <ion-row>
-                <ion-col>
-                  3x week
-                </ion-col>
-              </ion-row>
-  
-          </ion-grid>
-
-      </ion-item>
-      <ion-item  no-lines>
-              <ion-grid>
-    
-                <ion-row>
-                  <ion-col col-10>
-                <ion-card-title>
-                ibuprofen 200mg
-                </ion-card-title>
-                </ion-col>
-                <ion-col col-2>
-                  <a href="https://www.drugs.com/interactions-check.php?drug_list=243-3229,1310-0">
-                    <ion-icon large name='warning' class="redicon"></ion-icon></a>
-                </ion-col>
-                </ion-row>
-                <ion-row>
-                  <ion-col>
-                    3x week
-                  </ion-col>
-                </ion-row>
-    
-            </ion-grid>
-          </ion-item>
-          <ion-item  no-lines>
-                <ion-grid>
-      
-                  <ion-row>
-                    <ion-col col-10>
-                  <ion-card-title>
-                  Other drug 500mg
-                  </ion-card-title>
-                  </ion-col>
-                  <ion-col col-2>
-                  </ion-col>
-                  </ion-row>
-                  <ion-row>
-                    <ion-col>
-                      3x week
-                    </ion-col>
-                  </ion-row>
-      
-              </ion-grid>
-            </ion-item>
-            </ion-list>
+  <ion-card>
+  <ion-card-content>
+    <button ion-item onclick="window.open('https://www.drugs.com/interactions-check.php?drug_list=243-3229,1310-0')">
+      Ibuprofen 200mg
+      <p class="dosage-time">next dose: 6 pm</p>
+      <ion-icon name='warning' color="danger" item-end></ion-icon>
+    </button>
+  </ion-card-content>
+  </ion-card>
 </ion-content>
