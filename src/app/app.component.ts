@@ -17,7 +17,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   // TODO: change back to home
-  rootPage: any = HomePage;
+  rootPage: any = InsurerPage;
 
   pages: Array<{title: string, component: any}>;
 

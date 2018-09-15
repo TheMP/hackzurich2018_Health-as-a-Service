@@ -3,7 +3,11 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>AXA Insurance Center</ion-title>
+
+
+    <ion-title><ion-icon>
+      <img src="assets/imgs/axa_logo.png">&nbsp;
+    </ion-icon> AXA Insurance Center</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -37,14 +41,14 @@
         <p> 15.09.2018 </p>
         <span item-right>1500.0 CHF</span>
         <div item-right>
-          <button ion-button color="secondary">
-            New Bill&nbsp;
+          <button ion-button color="{{ newBill.state }}" disabled="{{newBill.disabled}}">
+            {{ newBill.status }}
           </button>
         </div>
       </ion-item>
 
       <ion-item-options side="right">
-        <button ion-button color="secondary">
+        <button ion-button color="secondary" (click) ="acceptInsurance($event, item)">
           <ion-icon name="checkmark-circle"></ion-icon>
           Accept
         </button>
@@ -73,7 +77,7 @@
 
       <ion-item-options side="right">
         <button ion-button color="primary">
-          <ion-icon name="mail"></ion-icon>
+          <ion-icon name="information-circle"></ion-icon>
           Details
         </button>
       </ion-item-options>
@@ -93,7 +97,7 @@
 
       <ion-item-options side="right">
         <button ion-button color="primary">
-          <ion-icon name="mail"></ion-icon>
+          <ion-icon name="information-circle"></ion-icon>
           Details
         </button>
       </ion-item-options>

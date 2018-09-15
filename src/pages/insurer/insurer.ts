@@ -9,11 +9,13 @@ export class InsurerPage {
   selectedItem: any;
   icons: string[];
   items: Array<{title: string, note: string, icon: string}>;
+  newBill: {state: string, status: string, disabled: boolean};
+
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     // If we navigated to this page, we will have an item available as a nav param
     this.selectedItem = navParams.get('item');
-
+    this.newBill = {state: "primary", status: "New Bill", disabled: false};
     // Let's populate this page with some filler content for funzies
     this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
     'american-football', 'boat', 'bluetooth', 'build'];
@@ -33,5 +35,11 @@ export class InsurerPage {
     this.navCtrl.push(InsurerPage, {
       item: item
     });
+  }
+
+  acceptInsurance(event, item) {
+    this.newBill.state = "secondary";
+    this.newBill.status = "Accepted";
+    this.newBill.disabled = true;
   }
 }
