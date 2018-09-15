@@ -22,9 +22,13 @@
     </ion-item>
 
     <ion-item class="tboarder" *ngFor="let drug of prescription.drugs; let i = index">
-      <ion-icon name="md-beaker" item-start></ion-icon>
+      <ion-icon name="md-beaker" item-start (click)="drugClicked(drug)"></ion-icon>
       <h4>{{ drug.title }} {{ prescription.grams[i] }} mg</h4>
+      <p>from {{ drug.authHolder }}</p>
       <p>{{ prescription.numTablets[i] }} Tablets</p>
+      <div [innerHtml]="html">
+        {{ drug.html }}
+      </div>
     </ion-item>
 
     <!--<ion-item class="tboarder">-->
