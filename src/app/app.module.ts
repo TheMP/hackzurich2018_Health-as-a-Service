@@ -8,6 +8,7 @@ import { ListPage } from '../pages/list/list';
 import { BillPage } from '../pages/bill/bill';
 import {InsurerPage} from "../pages/insurer/insurer";
 import { PrescriptionPage } from '../pages/prescription/prescription';
+import { PharmacyPage } from '../pages/pharmacy/pharmacy';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -22,7 +23,8 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
     ListPage,
     BillPage,
     PrescriptionPage,
-    InsurerPage
+    InsurerPage,
+    PharmacyPage
   ],
   imports: [
     BrowserModule,
@@ -35,7 +37,8 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
     ListPage,
     BillPage,
     PrescriptionPage,
-    InsurerPage
+    InsurerPage,
+    PharmacyPage
   ],
   providers: [
     StatusBar,
